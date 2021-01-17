@@ -89,3 +89,20 @@ Cuando la CPU genere una dirección lógica será necesario traducirla a la dire
 ## Contenido de la tabla de páginas
 
 Una entrada por cada página del proceso:
+
+- Número de marco en el que está almacenada la página si está en memoria principal
+- Bit de presencia o bit válido
+- Bit de modificación
+- Modo de acceso autorizado a la página o bit de protección
+
+## Falta de página
+
+1. Bloquear proceso
+2. Encontrar la ubicación en disco de la página solicitada
+3. Encontrar un marco libre. Si no hubiera, se puede optar por desplazar una página de memoria principal
+4. Cargar la página desde disco al marco de memoria principal
+5. Actualizar tablas y poner su bit de presencia a 1
+6. Desbloquear proceso
+7. Reiniciar la instrucción que originó la falta de página
+
+
